@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rCycle Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/slick.css" type="text/css" />
+  <link rel="stylesheet" href="static/css/templatemo-style.css">
+  <link rel="stylesheet" href="static/css/predict.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body style="background-color:grey;">
+  <div class='objectDetected'>
+    <img src="" id="imgDetected" width="480" height="480">
+  </div>
+  <div class="text-center">
+    <form method="post" enctype="multipart/form-data" id="myform">
+      <div class='preview'>
+        <img src="" id="img" width="100" height="100">
+      </div>
+      <div>
+        <input type="file" id="file" name="file" />
+        <input type="button" class="button" value="Upload" id="but_upload">
+      </div>
+      <p id="prediction"></p>
+    </form>
+    <script src="static/js/prediction.js"></script>
+  </div>
+  <script src="static/js/jquery-3.5.1.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
+  <script src="static/js/slick.js"></script>
+  <script src="static/js/templatemo-script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+item {
+    id: 1
+    name: 'Aluminum Drink Cans'
+}
+
+item {
+    id: 2
+    name: 'Glass Bottles and Jars'
+}
+
+item {
+    id: 3
+    name: 'Milk Cartons'
+}
+
+item {
+    id: 4
+    name: 'Plastic Bottles'
+}
+
+item {
+    id: 5
+    name: 'Catalogues,Magazines and Phonebooks'
+}
+
+item {
+    id: 6
+    name: 'Newspaper'
+}
+
+item {
+    id: 7
+    name: 'Junk Mail and Envelopes'
+}
+
+item {
+    id: 8
+    name: 'Office and Computer Paper'
+}

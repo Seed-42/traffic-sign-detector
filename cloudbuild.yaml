@@ -1,0 +1,14 @@
+steps:
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/seed42-traffic-sign-detector/traffic-sign-detect', '.']
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/seed42-traffic-sign-detector/traffic-sign-detect']
+## Deploy container image to Cloud Run
+#- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+#  entrypoint: gcloud
+#  args: ['run', 'deploy', 'planet-mercury', '--image', 'gcr.io/seed42-traffic-sign-detector/traffic-sign-detect', '--region', 'us-central1', '--port', '7000']
+images:
+- gcr.io/seed42-traffic-sign-detector/traffic-sign-detect
+timeout: 1800s

@@ -1,2 +1,3 @@
-# traffic-sign-detector
-Traffic sign detector
+# Traffic-sign-detector
+
+Detect traffic signs

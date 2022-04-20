@@ -1,13 +1,14 @@
-Flask==1.1.1
-gunicorn==19.9.0
-itsdangerous==1.1.0
-Jinja2==2.10.1
-MarkupSafe==1.1.1
-Werkzeug==0.15.5
-numpy>= 1.11.0
-# scipy>=0.15.1
-# scikit-learn>=0.22.1
-# matplotlib>=1.4.3
-pandas>=0.19
-# Cython>= 0.28.5
-opencv-python
+### APP
+Flask==2.0.2
+Werkzeug==2.0.1
+gunicorn==20.1.0
+
+### ML
+tensorflow==2.5.0
+numpy==1.19.5
+opencv_python==4.5.3.56
+Pillow==8.4.0
+matplotlib
+
+### DEPLOY
+google-cloud-storage==1.42.3
