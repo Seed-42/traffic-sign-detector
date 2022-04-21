@@ -21,7 +21,7 @@ $(document).ready(function(){
                  bytestring = response['location']
                  image = bytestring.split('\'')[1]
                   $("#img").attr("src",'data:image/jpeg;base64,'+image);
-//                  $("#prediction").text("Object Prediction: "+res.predict);
+                  $("#prediction").text("Object Prediction: "+res.predict);
                   $(".preview img").show(); // Display image element
 
 

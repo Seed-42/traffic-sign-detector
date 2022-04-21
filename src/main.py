@@ -42,7 +42,7 @@ def process_image():
     if request.method == 'POST':
         print("making prediction")
 
-        #get the image and save it inside the upload folder located inside the static folder
+        # get the image and save it inside the upload folder located inside the static folder
         f = request.files['file']
         filename = secure_filename(f.filename)
         location = "static/img/upload/"+filename
@@ -50,12 +50,14 @@ def process_image():
 
         print("file saved at: " + location)
 
-        #read the image using opencv
+        # read the image using opencv
         image = cv2.imread(location)
-        image =cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+        image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 
+        # Resize image
+        image = cv2.resize(image, (640, 640))
 
-        #make predictions on the image
+        # make predictions on the image
         # The input needs to be a tensor, convert it using `tf.convert_to_tensor`.
         input_tensor = tf.convert_to_tensor(image)
         # The model expects a batch of images, so add an axis with `tf.newaxis`.
@@ -68,8 +70,7 @@ def process_image():
         # Convert to numpy arrays, and take index [0] to remove the batch dimension.
         # We're only interested in the first num_detections.
         num_detections = int(detections.pop('num_detections'))
-        detections = {key: value[0, :num_detections].numpy()
-                    for key, value in detections.items()}
+        detections = {key: value[0, :num_detections].numpy() for key, value in detections.items()}
 
         detections['num_detections'] = num_detections
 
@@ -77,31 +78,31 @@ def process_image():
         detections['detection_classes'] = detections['detection_classes'].astype(np.int64)
 
         for i in range(len(detections['detection_scores'])):
-          if(detections['detection_scores'][i] >= MIN_THRESH):
-              output = (category_index.get(detections['detection_classes'][i]).get('name'),detections['detection_scores'][i]*100)
-              label.append(output)
+            if detections['detection_scores'][i] >= MIN_THRESH:
+                output = (category_index.get(detections['detection_classes'][i]).get('name'), detections['detection_scores'][i]*100)
+                label.append(output)
 
         image_detections = image.copy()
 
-
         viz_utils.visualize_boxes_and_labels_on_image_array(
-        image_detections,
-        detections['detection_boxes'],
-        detections['detection_classes'],
-        detections['detection_scores'],
-        category_index,
-        use_normalized_coordinates = True,
-        max_boxes_to_draw = MAX_BOXES,
-        min_score_thresh = MIN_THRESH,
-        agnostic_mode = False)
+            image_detections,
+            detections['detection_boxes'],
+            detections['detection_classes'],
+            detections['detection_scores'],
+            category_index,
+            use_normalized_coordinates=True,
+            max_boxes_to_draw=MAX_BOXES,
+            min_score_thresh=MIN_THRESH,
+            agnostic_mode=False
+        )
 
         img = Image.fromarray(image_detections.astype("uint8"))
         rawBytes = io.BytesIO()
         img.save(rawBytes, "JPEG")
         encodedImg = base64.b64encode(rawBytes.getvalue())
 
-        #sort based on 2nd element(score)
-        label.sort(key = lambda x: x[1])
+        # sort based on 2nd element(score)
+        label.sort(key=lambda x: x[1])
         data = {'location': str(encodedImg), 'predict': label}
 
         return jsonify(data), 200
