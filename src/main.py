@@ -18,7 +18,7 @@ from pathlib import Path
 PATH_TO_LABELS = os.path.join(Path(__file__).parent, 'label_map.pbtxt')
 
 # minimum required score for prediction
-MIN_THRESH = 0.3
+MIN_THRESH = 0.4
 
 # max num of boxes/prediction to draw on the image
 MAX_BOXES = 1

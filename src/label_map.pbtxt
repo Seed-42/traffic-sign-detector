@@ -1,39 +1,44 @@
 item {
     id: 1
-    name: 'Aluminum Drink Cans'
+    name: 'stop'
 }
 
 item {
     id: 2
-    name: 'Glass Bottles and Jars'
+    name: 'yield'
 }
 
 item {
     id: 3
-    name: 'Milk Cartons'
+    name: 'yieldAhead'
 }
 
 item {
     id: 4
-    name: 'Plastic Bottles'
+    name: 'merge'
 }
 
 item {
     id: 5
-    name: 'Catalogues,Magazines and Phonebooks'
+    name: 'signalAhead'
 }
 
 item {
     id: 6
-    name: 'Newspaper'
+    name: 'pedestrianCrossing'
 }
 
 item {
     id: 7
-    name: 'Junk Mail and Envelopes'
+    name: 'keepRight'
 }
 
 item {
     id: 8
-    name: 'Office and Computer Paper'
+    name: 'speedLimit35'
+}
+
+item {
+    id: 9
+    name: 'speedLimit25'
 }
